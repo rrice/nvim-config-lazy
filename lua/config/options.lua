@@ -19,6 +19,9 @@ vim.opt.number = true
 vim.opt.showmode = false
 vim.opt.breakindent = true
 
+-- Use clipboard
+vim.opt.clipboard = "unnamedplus"
+
 -- Save the undo history to a file.
 vim.opt.undofile = true
 
