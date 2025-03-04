@@ -96,10 +96,18 @@ return {
           },
         },
       },
+      emmet_language_server = {
+        filetypes = { "html", "htmx", "ejs", "css", "scss" },
+      },
+      html = {
+        filetypes = { "html", "htmx", "ejs" },
+      },
     }
 
     require("mason").setup()
     require("mason-lspconfig").setup({
+      ensure_installed = {},
+      automatic_installation = true,
       handlers = {
         function(name)
           local server = servers[name] or {}

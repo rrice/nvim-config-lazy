@@ -3,44 +3,45 @@ return {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
     event = { "BufReadPre", "BufNewFile" },
-    config = function()
-      local tsconfig = require("nvim-treesitter.configs")
-      tsconfig.setup({
-        ensure_installed = {
-          "lua",
-          "javascript",
-          "c",
-          "c_sharp",
-          "cpp",
-          "css",
-          "go",
-          "gomod",
-          "gosum",
-          "html",
-          "jsdoc",
-          "make",
-          "markdown",
-          "markdown_inline",
-          "proto",
-          "csv",
-          "commonlisp",
-          "scheme",
-          "sql",
-          "toml",
-          "typescript",
-          "xml",
-          "yaml",
+    opts = {
+      ensure_installed = {
+        "lua",
+        "javascript",
+        "c",
+        "c_sharp",
+        "cpp",
+        "css",
+        "go",
+        "gomod",
+        "gosum",
+        "html",
+        "jsdoc",
+        "make",
+        "markdown",
+        "markdown_inline",
+        "proto",
+        "csv",
+        "commonlisp",
+        "scheme",
+        "sql",
+        "toml",
+        "typescript",
+        "embedded_template",
+        "xml",
+        "yaml",
+      },
+    },
+    config = function(_, opts)
+      require("nvim-treesitter.configs").setup(opts)
+      -- EJS
+      vim.filetype.add({
+        extension = {
+          ejs = "ejs",
         },
-        ignore_install = {},
-        modules = {},
-        sync_install = false,
-        auto_install = true,
-        highlight = {
-          enable = true,
-          additional_vim_regex_highlighting = false,
-        },
-        indent = { enable = true },
       })
+      vim.treesitter.language.register("html", "ejs")
+      vim.treesitter.language.register("javascript", "ejs")
+      vim.treesitter.language.register("embedded_template", "ejs")
     end,
   },
 }
