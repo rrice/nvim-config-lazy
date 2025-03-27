@@ -106,7 +106,23 @@ return {
 
     require("mason").setup()
     require("mason-lspconfig").setup({
-      ensure_installed = {},
+      ensure_installed = {
+        "lua_ls",
+        "ts_ls",
+        "emmet_language_server",
+        "html",
+        "pylsp",
+        "zls",
+        "dockerls",
+        "docker_compose_language_service",
+        "bashls",
+        "openscad_lsp",
+        "omnisharp",
+        "powershell_es",
+        "yamlls",
+        "clangd",
+        "arduino_language_server",
+      },
       automatic_installation = true,
       handlers = {
         function(name)
