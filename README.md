@@ -21,7 +21,7 @@ $ ln -s $HOME/src/nvim-config-lazy $HOME/.config/nvim-config-lazy
 ````
 
 Assuming that you may be using a POSIX shell, create an alias using the symbolic link. Create a unique
-alias name for it. I used the name `lazy`, but it can be any command youa desire. Then, use the `NVIM_APPNAME` 
+alias name for it. I used the name `lazy`, but it can be any command you desire. Then, use the `NVIM_APPNAME` 
 environment variable and set it to the name of your symbolic link:
 
 ````
