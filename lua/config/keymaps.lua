@@ -8,6 +8,20 @@ vim.opt.hlsearch = true
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
 -- Diagnostic keymap bindings.
+vim.diagnostic.config({
+  virtual_text = false,
+  signs = true,
+  float = {
+    border = "single",
+    format = function(d)
+      return string.format("%s (%s) [%s]",
+        d.message,
+        d.source,
+        d.code or d.user_data.lsp.code)
+    end,
+  },
+})
+
 vim.keymap.set("n", "[d", vim.diagnostic.get_prev, { desc = "Go to previous [D]iagnostic message" })
 vim.keymap.set("n", "]d", vim.diagnostic.get_next, { desc = "Go to next [D]iagnostic message" })
 vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = "Show diagnostic [E]rror messages" })
