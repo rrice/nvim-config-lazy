@@ -11,6 +11,10 @@ return {
     "hrsh7th/cmp-nvim-lsp",
   },
   config = function()
+    require 'lspconfig'.racket_langserver.setup {}
+
+    vim.lsp.enable('racket_langserver')
+
     local lsp_setup_group = vim.api.nvim_create_augroup("my_lsp_setup", { clear = true })
 
     vim.api.nvim_create_autocmd("LspAttach", {
